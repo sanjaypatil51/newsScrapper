@@ -23,7 +23,7 @@ app.use(express.static("public"));
 // Connect to the Mongo DB
 // mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/newsScrape", { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://sanjaydb1:Welcome123@ds161159.mlab.com:61159/heroku_x2v35k1r", { useNewUrlParser: true });
 
 // Routes
 
