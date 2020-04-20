@@ -9,7 +9,7 @@ $.ajax({
       // Display the apropos information on the page
       // $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + "<a href="+ data[i].link+">"+data[i].link +"</a></p>");
       if (data[i].title && data[i].link) {
-        var newArticle = `<div data-id=${i} class="shadow"> <h3>${data[i].title} </h3><button type="button" class="btn btn-info float-right save-article">Save Article</button><a href= ${data[i].link}>${data[i].link}</a></div><br />
+        var newArticle = `<div data-id=${i} class="shadow"> <h3>${data[i].title} </h3><button type="button" class="btn btn-success float-right save-article">Save Article</button><a href= ${data[i].link}>${data[i].link}</a></div><br />
       `
         $("#articles").append(newArticle)
       }
@@ -21,9 +21,10 @@ $.ajax({
 
 //scrape articles
 
-$("#scrape-article").on("click", function () {
+$("#scrape-article").on("click", function (event) {
+  event.preventDefault()
   console.log("in scrape button")
-
+  $("#articles").empty()
   $.ajax({
     url: "/scrape",
     method: "GET"
@@ -34,7 +35,7 @@ $("#scrape-article").on("click", function () {
         // Display the apropos information on the page
         // $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + "<a href="+ data[i].link+">"+data[i].link +"</a></p>");
         if (data[i].title && data[i].link) {
-          var newArticle = `<div data-id=${i} class="shadow"> <h3>${data[i].title} </h3><button type="button" class="btn btn-info float-right save-article">Save Article</button><a href= ${data[i].link}>${data[i].link}</a></div><br />
+          var newArticle = `<div data-id=${i} class="shadow"> <h3>${data[i].title} </h3><button type="button" class="btn btn-success float-right save-article">Save Article</button><a href= ${data[i].link}>${data[i].link}</a></div><br />
         `
           $("#articles").append(newArticle)
         }
@@ -44,7 +45,8 @@ $("#scrape-article").on("click", function () {
 })
 
 //post articles
-$("#articles").on("click", ".save-article", function () {
+$("#articles").on("click", ".save-article", function (event) {
+  event.preventDefault()
   console.log("in post")
 
   console.log($(this))
@@ -59,7 +61,7 @@ $("#articles").on("click", ".save-article", function () {
   // console.log($(this).parent().text())
   // console.log($(this)[0].parent().childNodes[1].nodeValue)
   // console.log($(this).parent().attr("href"))
- var bparentNode=$(this).parent()
+  var bparentNode = $(this).parent()
 
   $.ajax({
     method: "POST",

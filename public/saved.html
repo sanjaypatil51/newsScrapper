@@ -1,46 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scrapping with Mangoose</title>
-    
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
- 
-    <!-- Font Awesome Glyphicons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 
-    <link rel="stylesheet" href="style.css" />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scrapping with Mangoose</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!-- jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Font Awesome Glyphicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css" />
+  <!--Bootstrpa js for modal-->
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
+
 </head>
+
 <body>
-    <div class="container">
-        <div class="jumbotron">
-          <h1><i class="far fa-newspaper"></i> News Scrapper</h1>
-          <hr>
-          <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Scrape Reuters</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-    
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/saved">Saved Articles</a>
-                </li>
-              </ul>
-            </div>
-          </nav>
+  <div class="container">
+    <div class="jumbotron">
+      <h1><i class="far fa-newspaper"></i> News Scrapper</h1>
+      <hr>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Scrape Reuters</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/saved">Saved Articles</a>
+            </li>
+          </ul>
         </div>
-        <div id="articles"></div>
+      </nav>
+    </div>
+    <div id="articles"></div>
+
+    <!-- Modal -->
+    <div id="note-modal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title"><strong>Notes</strong></h2>
+          </div>
+          <div class="modal-body">
+            <div class="allNotes"></div>
+            <form id="notesForm">
+              <br />
+              <br />
+              <div class="form-group">
+                <label for="notes">Add Notes</label>
+                <textarea class="form-control" style="min-width: 100%" id="notes" rows="3"></textarea>
+              </div>
+              <br/>
+              <br/>
+              <button type="submit" class="btn btn-secondary noteSubmit">Submit</button>
+            </form>
+          </div>          
+        </div>
       </div>
-    
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      <script src="saved.js"></script>
+
+    </div>
+
+
+    <script src="saved.js"></script>
 </body>
+
 </html>
